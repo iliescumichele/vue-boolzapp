@@ -5,84 +5,124 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    
     <link rel="stylesheet" href="css/style.css">
     <!-- Font awesome -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- G-Font 'Lato' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Serif&display=swap" rel="stylesheet"> 
 
     <title>Document</title>
 </head>
 <body>
-    
-    
-      
-    <div class="top-bkg"></div>
 
-    <section class="main-box clearfix">
+    <div id="app">
+        <section class="main-box clearfix">
 
-        <section id="col-sx">
+            <section id="col-sx">
 
-            <!-- my account name + pulsanti per impostazioni, chat ecc -->
-            <div class="header-sx">
-                <div class="my-img-name">
-                    <img src="img/avatar_io.jpg" alt="">
-                    <span>Sofia</span>
+                <!-- my account name + pulsanti per impostazioni, chat ecc -->
+                <div class="header-sx">
+                    <div class="my-img-name">
+                        <img :src="`img/avatar_io.jpg`" alt="">
+                        <span>Sofia</span>
+                    </div>
+
+                    <div class="header-sx-btns">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                 </div>
 
-                <div class="header-sx-btns">
-                    <i class="fa-solid fa-circle-notch"></i>
-                    <i class="fa-solid fa-message"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                <!-- banner per attivare o no le notifiche -->
+                <div class="ask-notifications">
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <span>Ricevi notifiche di nuovi messaggi <br>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </span>
                 </div>
-            </div>
 
-            <!-- banner per attivare o no le notifiche -->
-            <div class="ask-notifications">
-                <i class="fa-solid fa-bell-slash"></i>
-                <span>Ricevi notifiche di nuovi messaggi <br>
-                      <a href="#">Attiva notifiche desktop</a>
-                </span>
-            </div>
-
-            <!-- search bar dei contatti -->
-            <div class="search-bar-contacts">
-                <div class="btn-search-contact">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <!-- search bar dei contatti -->
+                <div class="search-bar-contacts">
+                    <label class="btn-search-contact" for="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <input type="text"placeholder="Cerca o inizia una nuova chat">
                 </div>
-                <input type="text"placeholder="Cerca o inizia una nuova chat">
-            </div>
 
 
-            <!-- Ultimi contatti con cui ho chattato  -->
-            <div class="last-chats">
-                <div class="single-chat-with-contact">
+                <!-- Ultimi contatti con cui ho chattato  -->
+                <div class="last-chats">
 
-                    <div class="image-text">
-                        <img src="img/avatar_1.jpg" alt="">
-                        <div class="text">
-                            <p>nome contatto</p>
-                            <p>ultimo mex inviato</p>
+                    <!-- Singolo contatto con immagine e ultimo messaggio -->
+                    <div v-for="(contact, index) in contacts"
+                      class="single-chat-with-contact"
+                    >
+                        <div class="image-contact">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="`${contact.name}`">
+                        </div>
+
+                        <div class="text-contact">
+                            <p>
+                                <span class="contact-name">{{contact.name}}</span>
+                                <span class="time-date">12:22:23</span>
+                            </p>
+                            <small>ultimo messaggio...</small>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="time">
-                        <p>12:22:23</p>
+
+            <!-- --------------------------------------- -->
+
+
+            <section id="col-dx">
+                <div class="header-dx">
+                    <div class="header-dx-active-contact">
+                        <img src="img/avatar_1.jpg" alt="">
+                        
+                            <div class="aaaa">
+                                <p>Michele</p>
+                                <small>Ultimo accesso alle...</small>
+                            </div>
+                        
+                    </div>
+                    <div class="header-dx-btns">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-            </div>
+
+
+                <div class="container-chat">
+
+                </div>
+
+
+
+                <div class="footer-dx">
+                    <div class="btn-emoji">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+
+                    <div class="write-msg">
+                        <input type="text" placeholder="Scrivi un messaggio">
+                    </div>
+
+                    <div class="btn-vocal-msg">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+
+                </div>
+            </section>
         </section>
 
-
-        <!-- --------------------------------------- -->
-
-
-        <section id="col-dx">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, voluptatibus dolores corrupti itaque amet eius saepe vel delectus eos ad quos odit voluptatem ratione eligendi qui nisi provident repudiandae repellendus.
-        </section>
-    </section>
-
-    <div class="bottom-bkg"></div>
-        
+    </div>
 
 
 
