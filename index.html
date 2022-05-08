@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- Font awesome -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
@@ -61,16 +61,16 @@
 
                     <!-- Singolo contatto con immagine e ultimo messaggio -->
                     <div v-for="(contact, index) in contacts"
-                      class="single-chat-with-contact"
+                      class="single-chat-with-contact "
                     >
-                        <div class="image-contact">
+                        <div class="image-contact ">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="`${contact.name}`">
                         </div>
 
                         <div class="text-contact">
                             <p>
-                                <span class="contact-name">{{contact.name}}</span>
-                                <span class="time-date">12:22:23</span>
+                                <span class="contact-name "><strong>{{contact.name}}</strong></span>
+                                <span class="time-date ">12:22:23</span>
                             </p>
                             <small>ultimo messaggio...</small>
                         </div>
@@ -84,23 +84,44 @@
 
             <section id="col-dx">
                 <div class="header-dx">
-                    <div class="header-dx-active-contact">
+                    <div class="header-dx-active-contact clearfix">
                         <img src="img/avatar_1.jpg" alt="">
                         
-                            <div class="aaaa">
-                                <p>Michele</p>
-                                <small>Ultimo accesso alle...</small>
+                            <div class="active-user-header-info">
+                                <p>
+                                    <span>Michele</span><br>
+                                    <small>Ultimo accesso alle...</small>
+                                </p>
                             </div>
                         
                     </div>
                     <div class="header-dx-btns">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
 
 
-                <div class="container-chat">
+                <div class="box-messages">
+                    <div class="container-chat clearfix">
 
+                        <div class="a-message sent">
+                            <div class="message-txt sent">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eos doloribus ab consequuntur provident inventore?
+                            </div>
+                            <div class="message-time">00/00/000 00:00:00</div>
+                        </div>
+
+                        <div class="a-message received">
+                            <div class="message-txt">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eos doloribus ab consequuntur provident inventore?
+                            </div>
+                            <div class="message-time">00/00/000 00:00:00</div>
+                        </div>
+
+
+                    </div>
                 </div>
 
 

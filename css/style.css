@@ -1,54 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.clearfix::after{
-    content: '';
-    display: table;
-    clear: both;
-}
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-image:
-        linear-gradient( to bottom,
-            #009688 10%,
-            #d8dbd6 0%);
-    font-family: 'Lato Serif' , sans-serif;
-}
-
-.main-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 95%;
-    min-width: 1000px;
-    width: 80%;
-    background-color: white;
-}
-
-#col-sx, #col-dx{
-    float: left;
-}
-
-
-#col-sx{
-    width: 35%;
-    height: 100%;
-}
-
-#col-dx{
-    height: 100%;
-    width: 65%;
-}
-
 
 /*
     COL-SX
@@ -108,7 +57,7 @@ body{
     display: flex;
     align-items: center;
     justify-content:center;
-    background-color: #fafafa;
+    background-color: #f0f0f0;
     height: 50px;
 }
 
@@ -135,7 +84,11 @@ body{
 .single-chat-with-contact{
     height: 80px;
     padding: 10px 20px;
-    border-top: 0.2px solid #ababab;
+    border-bottom: 0.2px solid #ababab;
+}
+
+.single-chat-with-contact .image-contact{
+    float: left;
 }
 
 .single-chat-with-contact .image-contact img{
@@ -144,30 +97,39 @@ body{
 }
 
 
-.single-chat-with-contact .text-contact .time-date{
-    float: right;
+.single-chat-with-contact .text-contact {
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: calc(100% - 60px);
 }
 
-/* ------------------------------------------------ */
+.single-chat-with-contact .text-contact p{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-contact p .time-date{
+    font-size: 0.72rem;
+    color: #a8a8a8;
+}
+/*------------------------------------------------ */
+/*------------------------------------------------ */
+
+
 
 /*
     COL-DX
 */
-
 .header-dx{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 65px;
     padding: 10px;
-    line-height: 65px;
     border-right: 1px solid #d6d6d6;
     background-color: #eaeaea;
     vertical-align: middle;
-}
-
-.header-dx .header-dx-active-contact .aaaa{
-    display: inline-block;
 }
 
 .header-dx .header-dx-active-contact img{
@@ -175,7 +137,15 @@ body{
     vertical-align: middle;
     border-radius: 50%;
     cursor: pointer;
+    float: left;
 }
+
+.header-dx .header-dx-active-contact .active-user-header-info{
+    float: left;
+     
+    margin-left: 10px;
+}
+
 
 .header-dx .header-dx-btns i{
     margin: 5px;
@@ -185,10 +155,47 @@ body{
     cursor: pointer;
 }
 
-.container-chat{
+/* Chat con il contatto */
+.box-messages{
+    width: 100%;
     height: calc(100% - 65px - 70px);
-    background-image: url(../img/mine.jpg);
 }
+
+.box-messages .container-chat{
+    height: 100%;
+    width: 100%;
+    padding: 5% 7.5%;
+    background-image: url(../img/mine.jpg);
+    
+}
+
+.container-chat .a-message{
+    position: relative;
+    min-width: 40%;
+    max-width: 60%;
+    margin: 5px 0;
+    border-radius: 13px;
+    padding: 17px;
+    background-color: white;
+}
+
+.container-chat .a-message.sent{
+    float: right;
+    background-color: #D5F9BA;
+}
+
+.container-chat .a-message.received{
+    float: left;
+}
+
+.container-chat .a-message .message-time{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 0.72rem;
+    color: #B6BBBC;
+}
+/* --------------------------------------- */
 
 .footer-dx{
     width: 100%;
@@ -208,7 +215,7 @@ body{
 }
 
 .footer-dx .btn-vocal-msg{
-    float: right;
+    float: left;
     height: 100%;
     width: 10%;
     font-size: 22px;
@@ -226,6 +233,7 @@ body{
 }
 
 .footer-dx input{
+    float: left;
     width: 80%;
     height: 50px;
     margin: 10px 0;
