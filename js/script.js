@@ -9,8 +9,6 @@ const app = new Vue({
     el: '#app',
 
     data: {
-        contactActive: 0,
-        writtenMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -239,6 +237,16 @@ const app = new Vue({
                     }
                 ],
             },
+        ],
+        contactActive: 0,
+        writtenMessage: '',
+        messageFromContact: '',
+        arrOfAnswers: [
+            'Grande bro!',
+            'Ciao',
+            'HI BRO',
+            'How are you?',
+            'This is a random answer from my database :)'
         ]
     },
 
@@ -281,9 +289,29 @@ const app = new Vue({
             }, 750);
 
             this.writtenMessage = '';
+
+            setTimeout(() =>{
+                this.contacts[this.contactActive].messages.push(this.responseOfContact());
+            }, 2750);
+
+            this.messageFromContact = '';
         },
 
-        
+        responseOfContact(){
+            this.messageFromContact = this.arrOfAnswers[this.numRandom(this.arrOfAnswers.length - 1 )];
+            const message = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                message: this.messageFromContact,
+                status: 'received'
+            };
+
+            return message;
+        },
+
+
+        numRandom(max){
+            return Math.floor(Math.random() * max);
+        }
 
     }
 })
