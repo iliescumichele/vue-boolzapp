@@ -28,8 +28,8 @@
                 <!-- my account name + pulsanti per impostazioni, chat ecc -->
                 <div class="header-sx">
                     <div class="my-img-name">
-                        <img :src="`img/avatar_io.jpg`" alt="">
-                        <span>Sofia</span>
+                        <img :src="`img/avatar_3.jpg`" alt="">
+                        <span>Lucio</span>
                     </div>
 
                     <div class="header-sx-btns">
@@ -61,7 +61,9 @@
 
                     <!-- Singolo contatto con immagine e ultimo messaggio -->
                     <div v-for="(contact, index) in contacts"
-                      class="single-chat-with-contact "
+                      class="single-chat-with-contact"
+                      @click="contactActive = index"
+                      :class="{'contact-clicked': contactActive === index}"
                     >
                         <div class="image-contact ">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="`${contact.name}`">
@@ -85,11 +87,11 @@
             <section id="col-dx">
                 <div class="header-dx">
                     <div class="header-dx-active-contact clearfix">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="`img/avatar${contacts[contactActive].avatar}.jpg`" alt="">
                         
                             <div class="active-user-header-info">
                                 <p>
-                                    <span>Michele</span><br>
+                                    <span><strong>{{contacts[contactActive].name}}</strong></span><br>
                                     <small>Ultimo accesso alle...</small>
                                 </p>
                             </div>
