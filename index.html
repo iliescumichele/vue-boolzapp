@@ -85,6 +85,8 @@
 
 
             <section id="col-dx">
+
+                <!-- Info del contatto attivo/selezionato -->
                 <div class="header-dx">
                     <div class="header-dx-active-contact clearfix">
                         <img :src="`img/avatar${contacts[contactActive].avatar}.jpg`" alt="">
@@ -105,23 +107,18 @@
                 </div>
 
 
-                <div class="box-messages">
+                <div class="box-messages clearfix">
                     <div class="container-chat clearfix">
 
-                        <div class="a-message sent">
-                            <div class="message-txt sent">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eos doloribus ab consequuntur provident inventore?
-                            </div>
-                            <div class="message-time">00/00/000 00:00:00</div>
-                        </div>
-
-                        <div class="a-message received">
+                        <div v-for="messageInfo in contacts[contactActive].messages"
+                            class="a-message"
+                            :class="messageInfo.status"
+                        >
                             <div class="message-txt">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eos doloribus ab consequuntur provident inventore?
+                                {{messageInfo.message}}
                             </div>
-                            <div class="message-time">00/00/000 00:00:00</div>
+                            <div class="message-time">{{messageInfo.date}}</div>
                         </div>
-
 
                     </div>
                 </div>

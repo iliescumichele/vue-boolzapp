@@ -142,7 +142,6 @@
 
 .header-dx .header-dx-active-contact .active-user-header-info{
     float: left;
-     
     margin-left: 10px;
 }
 
@@ -159,13 +158,14 @@
 .box-messages{
     width: 100%;
     height: calc(100% - 65px - 70px);
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
 }
 
 .box-messages .container-chat{
     height: 100%;
     width: 100%;
     padding: 5% 7.5%;
-    background-image: url(../img/mine.jpg);
     
 }
 
@@ -177,6 +177,7 @@
     border-radius: 13px;
     padding: 17px;
     background-color: white;
+    clear: both;
 }
 
 .container-chat .a-message.sent{
