@@ -1,8 +1,16 @@
+
+//aggiunta del plugin per prendere la data quando verrà inviato/ricevuto un messaggio
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
+
+
+
 const app = new Vue({
     el: '#app',
 
     data: {
         contactActive: 0,
+        writtenMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -255,6 +263,27 @@ const app = new Vue({
             const lastDate =  messages[messages.length - 1];
             
             return lastDate.date;
-        }
+        },
+
+        messageSentByUser(){
+            const message = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                message: this.writtenMessage,
+                status: 'sent'
+            };
+            
+            this.pushMessageUser(message);
+        },
+
+        pushMessageUser(message){
+            setTimeout(() =>{
+                this.contacts[this.contactActive].messages.push(message);
+            }, 750);
+
+            this.writtenMessage = '';
+        },
+
+        
+
     }
 })

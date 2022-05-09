@@ -11,6 +11,9 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Plugin per la data e l'ora -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/plugin/customParseFormat.js"></script>
     <!-- G-Font 'Lato' -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +32,7 @@
                 <div class="header-sx">
                     <div class="my-img-name">
                         <img :src="`img/avatar_3.jpg`" alt="">
-                        <span>Lucio</span>
+                        <span><strong>Lucio</strong></span>
                     </div>
 
                     <div class="header-sx-btns">
@@ -94,7 +97,7 @@
                             <div class="active-user-header-info">
                                 <p>
                                     <span><strong>{{contacts[contactActive].name}}</strong></span><br>
-                                    <small>Ultimo accesso alle...</small>
+                                    <small>Ultimo accesso alle </small>
                                 </p>
                             </div>
                         
@@ -131,7 +134,10 @@
                     </div>
 
                     <div class="write-msg">
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input v-model.trim="writtenMessage"
+                            @keyup.enter="messageSentByUser()"
+                            type="text" placeholder="Scrivi un messaggio"
+                        >
                     </div>
 
                     <div class="btn-vocal-msg">
