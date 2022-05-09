@@ -232,5 +232,29 @@ const app = new Vue({
                 ],
             },
         ]
+    },
+
+    methods: {
+        lastMessageForEveryContact(index){
+            //prendo il contatto dall'array con l'indece ricevuto
+            const contact = this.contacts[index];
+            //dal contatto mi servono i messaggi
+            const messages = contact.messages;
+            //dall'array di messaggi prendo l'ultimo messaggio inviato
+            const lastMessage =  messages[messages.length - 1];
+            
+            return lastMessage.message;
+        },
+
+        lastDateForEveryContact(index){
+            //prendo il contatto dall'array con l'indece ricevuto
+            const contact = this.contacts[index];
+            //dal contatto mi servono i messaggi che all'interno hanno la data e l'ora
+            const messages = contact.messages;
+            //dall'array di messaggi prendo l'ultimo messaggio inviato con il dato che mi serve
+            const lastDate =  messages[messages.length - 1];
+            
+            return lastDate.date;
+        }
     }
 })

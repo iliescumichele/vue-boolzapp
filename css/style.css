@@ -192,7 +192,7 @@
 .container-chat .a-message .message-time{
     position: absolute;
     right: 5px;
-    bottom: 5px;
+    bottom: 3px;
     font-size: 0.72rem;
     color: #B6BBBC;
 }

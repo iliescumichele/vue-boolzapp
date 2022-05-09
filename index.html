@@ -72,9 +72,9 @@
                         <div class="text-contact">
                             <p>
                                 <span class="contact-name "><strong>{{contact.name}}</strong></span>
-                                <span class="time-date ">12:22:23</span>
+                                <span class="time-date ">{{lastDateForEveryContact(index)}}</span>
                             </p>
-                            <small>ultimo messaggio...</small>
+                            <small>{{lastMessageForEveryContact(index)}}</small>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                 </div>
 
 
-                <div class="box-messages clearfix">
+                <div class="box-messages ">
                     <div class="container-chat clearfix">
 
                         <div v-for="messageInfo in contacts[contactActive].messages"
